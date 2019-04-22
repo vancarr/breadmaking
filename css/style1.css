@@ -14,17 +14,20 @@ body {
 h1{
     padding: 25px 0px;
     text-align: center;
+    font-size: 4em;
 }
 
 .pagetitle{
     padding: 20px 0px;
     text-align: center;
+    font-size: 3em;
 }
 
 .title {
     width: 30%;
     padding: 5px 20px;
     text-align: center;
+    font-size: 2em;
 }
 
 .welcome{
@@ -35,9 +38,10 @@ h1{
     font-family: 'Open Sans', sans-serif;
     color: #ffbd3a;
     background-color: rgb(0, 0, 0, 0.7);
-    padding: 20px 5px;
+    padding: 20px 50px;
     margin: 10px 5px;
     border: 5px solid #ffbd3a;
+    border-radius: 20px;
 }
 
 nav{
@@ -46,6 +50,7 @@ nav{
     margin-bottom: 10px;
     flex: 0 0 auto;
     padding: 10px;
+    font-size: 1.4em;
 }
 
 a{
@@ -84,7 +89,9 @@ a{
 /*push image down*/
 .aboutme > img {
    margin: 50px 0px;
-    max-width: 10%;
+/*changed width of image to be more friendly for mobile without adding to @media query*/
+   width: 100%;
+   max-width: 200px;
 }
 
 .aboutauthor{
@@ -98,21 +105,36 @@ a{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-
 }
+
+
+
 /*add new class for any new pictures to retain gallery image styling*/
 .image1, .image2, .image3, .image4, .image5, .image6, .image7, .image8 {
    width: 43%;
    /*need to maually set the height*/
    height:30vw;
-   padding: 1px;
    border: 5px solid #ffbd3a;
+   margin: 20px 0px;
    background-size: contain;
    background-position: center center;
    background-repeat: no-repeat;
    display: flex;
-   margin: 20px 10px;
 }
+
+/*Modify link to relevant posts*/
+.subtitle{
+    /*Allows text to be visible in front of image*/
+    text-shadow:
+		-1px -1px 0 #000,
+		 1px -1px 0 #000,
+		-1px 1px 0 #000,
+		 1px 1px 0 #000;
+	align-self: flex-end;
+	padding: 15px;
+    font-size: 1.5em;
+}
+
 /*links for images to use as background*/
 
 
@@ -177,4 +199,60 @@ footer{
     bottom: -10;
 }
 
-/*section for media queries*/
+/*section for media queries for mobile and tablet*/
+
+@media only screen and (max-width: 600px) {
+/*prevent nav links from over crowding*/
+nav{
+    font-size: 1.2em;
+    flex-flow: row wrap;
+}
+
+/*increase size of post titles*/
+.title {
+    width: 80%;
+}
+
+/*increase image sizes for visibility in index.html and posts.html*/
+.section > img{
+    width: 90%
+}
+
+.description > img{
+    width: 90%;
+}
+
+
+/*decrease gallery.html description font size and padding*/
+.subtitle {
+    font-size: .8em;
+    padding: 10px;
+}
+
+/*make aboutme.html description into column and remove margins for better readability*/
+.aboutme {
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.aboutauthor{
+    margin: 0px;
+}
+
+/*set width to 100% and increase height for better picture quality on mobile*/
+.image1, .image2, .image3, .image4, .image5, .image6, .image7, .image8 {
+   width: 100%;
+   /*need to maually set the height*/
+   height:40vw;
+   margin: 10px 0px;
+}
+
+/*Change margins and padding for recipes.html for better readability*/
+.recipes > section {
+    margin: 20px 0px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+} 
